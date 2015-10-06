@@ -6,12 +6,14 @@ from z3c.form import interfaces
 from z3c.form.browser.orderedselect import OrderedSelectWidget
 from z3c.form.widget import FieldWidget
 
+from plone.app.widgets.dx import RelatedItemsWidget, IRelatedItemsWidget
+
 from interfaces import ITaxonomySelectWidget
 
 
-class TaxonomySelectWidget(OrderedSelectWidget):
+class TaxonomySelectWidget(RelatedItemsWidget):
     zope.interface.implements(ITaxonomySelectWidget,
-                              interfaces.IOrderedSelectWidget)
+                              IRelatedItemsWidget)
 
 
 @zope.component.adapter(zope.schema.interfaces.ISequence,
